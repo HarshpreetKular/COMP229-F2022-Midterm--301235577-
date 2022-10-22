@@ -1,0 +1,97 @@
+<% include ../partials/header.ejs %>
+
+  <!-- MAIN CONTENT -->
+  <!--
+  Web App Dev Mid term
+  October 22, 2022
+  COMP 229 SEC 001
+  Harshpreet Kular
+  301235577
+  -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3>Favourite Books List </h3>
+        <!-- ------------------------ -->
+        <!-- FIX THE ADD BUTTON BELOW -->
+        <!-- ------------------------ -->
+        <a href="COMP229-F2022-MidTerm-Start\server\views\books\details.ejs" class="btn btn-primary"><i
+            class="fa fa-plus"></i> Add a book</a>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Author</th>
+                <th class="text-center">Genre</th>
+                <th class="text-center"></th>
+                <th class="text-center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Template Row -->
+              <% for (let count=0; count < books.length; count++) { %>
+                <tr>
+                  <td>
+                    <%= books[count].Title %>
+                  </td>
+                  <td class="text-center">$<%= books[count].Price %>
+                  </td>
+                  <td class="text-center">
+                    <%= books[count].Author %>
+                  </td>
+                  <td class="text-center">
+                    <%= books[count].Genre %>
+                  </td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the EDIT BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <form class="form" method="post">
+                      <div class="form group">
+                      <label for="nameTextField">Book Title</label>
+                      <input type="text" class="form control" id="nameTextField" placeholder="Enter the Book Title" name="name"  value="<% book.Title %>" required>
+                      </div>
+          
+                      <div class="form group">
+                          <label for="authorTextField">Price</label>
+                          <input type="text" class="form control" id="authorTextField" placeholder="Enter the Book's price" name="price" value="<% book.Price %>" required>
+                      </div>
+          
+                      <div class="form group">
+                          <label for="publishedTextField">Author</label>
+                          <input type="text" class="form control" id="publishedTextField" placeholder="Enter the books Author" name="author" value="<% book.Author %>" required>
+                      </div>
+          
+                      <div class="form group">
+                          <label for="descriptionTextArea">Genre</label>
+                          <textarea type="text" class="form control" id="descriptionTextArea" placeholder="Enter the Books Genre" name="description" value="<% book.Genre %>" required></textarea>
+                      </div>
+                    
+                      <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Submit</button>
+                      <a href="/books" class="btn btn-warning"><i class="fas fa-undo"></i>Cancel</a>
+                  </form>
+
+                  </td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the DELETE BUTTON HERE -->
+                    <!-- ------------------------ -->
+                  </td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-offset-1 col-md-10 text-center">
+          <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
