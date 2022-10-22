@@ -15,8 +15,7 @@
         <!-- ------------------------ -->
         <!-- FIX THE ADD BUTTON BELOW -->
         <!-- ------------------------ -->
-        <a href="COMP229-F2022-MidTerm-Start\server\views\books\details.ejs" class="btn btn-primary"><i
-            class="fa fa-plus"></i> Add a book</a>
+        <a href="/views/books/index.ejs" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
         <br>
         <div class="table-responsive">
           <table class="table table-bordered table-striped table-hover">
@@ -50,37 +49,14 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
-                    <form class="form" method="post">
-                      <div class="form group">
-                      <label for="nameTextField">Book Title</label>
-                      <input type="text" class="form control" id="nameTextField" placeholder="Enter the Book Title" name="name"  value="<% book.Title %>" required>
-                      </div>
-          
-                      <div class="form group">
-                          <label for="authorTextField">Price</label>
-                          <input type="text" class="form control" id="authorTextField" placeholder="Enter the Book's price" name="price" value="<% book.Price %>" required>
-                      </div>
-          
-                      <div class="form group">
-                          <label for="publishedTextField">Author</label>
-                          <input type="text" class="form control" id="publishedTextField" placeholder="Enter the books Author" name="author" value="<% book.Author %>" required>
-                      </div>
-          
-                      <div class="form group">
-                          <label for="descriptionTextArea">Genre</label>
-                          <textarea type="text" class="form control" id="descriptionTextArea" placeholder="Enter the Books Genre" name="description" value="<% book.Genre %>" required></textarea>
-                      </div>
-                    
-                      <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Submit</button>
-                      <a href="/books" class="btn btn-warning"><i class="fas fa-undo"></i>Cancel</a>
-                  </form>
-
+                    <a href="/books/details<%=Books[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil alt"></i>Edit</a>
                   </td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
+                    <a href="/books/details<%=Books[count]._id%>" class="btn btn-danger"><i class="fas fa-trash alt"></i>Delete</a>
                   </td>
                 </tr>
                 <% } %>

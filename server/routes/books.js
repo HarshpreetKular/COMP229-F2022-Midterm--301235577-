@@ -63,6 +63,7 @@ router.get('/:id', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/let id = req.params.id;
+   //find requested book by id
   Book.findById(id, (err, bookToEdit) => {
     //check for error
     if (err) {
@@ -82,23 +83,28 @@ router.post('/:id', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-   let id=req.params.id;
-   let updatedBook=Book({"id":id,
-   "name": req.body.name,
-   "price": req.body.price,
-   "author": req.body.author,
-   "genre": req.body.genre
-   });
-   Book.updateOne({_id:id}, updatedBook,(err)=>{
-       if(err){
-           console.log(err);
-           res.end(err);
-       }
-       else{
-           res.redirect('/books');
-       }
-   });
-   
+  //get info and update chosen book
+  let id = req.params.id;
+  let updatedBook = Book({
+    "id": id,
+    "name": req.body.name,
+    "price": req.body.price,
+    "author": req.body.author,
+    "genre": req.body.genre
+  });
+  //update book
+  Book.updateOne({ _id: id }, updatedBook, (err) => {
+    //check error
+    if (err) {
+      console.log(err);
+      res.end(err);
+    }
+    //go back to books
+    else {
+      res.redirect('/books');
+    }
+  });
+
 });
 
 // GET - process the delete by user id
@@ -107,16 +113,18 @@ router.get('/delete/:id', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
-   let id=req.params.id;
-   Book.remove({_id:id},(err)=>{
-       if(err){
-           console.log(err);
-           res.end(err);
-       }
-       else{
-           res.redirect('/bookList');
-       }
-   });
+  let id = req.params.id;
+  Book.remove({ _id: id }, (err) => {
+    //check error
+    if (err) {
+      console.log(err);
+      res.end(err);
+    }
+    //go back to books after deleting
+    else {
+      res.redirect('/books');
+    }
+  });
 });
 
 
