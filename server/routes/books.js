@@ -37,11 +37,11 @@ router.get('/add', (req, res, next) => {
    * ADD CODE HERE *
    *****************/
 
-  res.render('books/add', { title: 'Add book' });
+  res.render('books/details', { title: 'Add book' });
 })
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/add', (req, res, next) => {
+router.post('/details', (req, res, next) => {
 
   /*****************
    * ADD CODE HERE *
