@@ -79,7 +79,7 @@ router.get('/:id', (req, res, next) => {
     }
     //render details page if no error
     else {
-      res.redirect('/books', { title: 'Edit Book', book: bookToEdit });
+      res.redirect('/books/details', { title: 'Edit Book', book: bookToEdit });
     }
   })
 });
@@ -108,7 +108,7 @@ router.post('/:id', (req, res, next) => {
     }
     //go back to books
     else {
-      res.redirect('/books');
+      res.redirect('/books/index');
     }
   });
 
@@ -129,7 +129,7 @@ router.get('/delete/:id', (req, res, next) => {
     }
     //go back to books after deleting
     else {
-      res.redirect('/books');
+      res.redirect('/books/details');
     }
   });
 });
