@@ -1,3 +1,10 @@
+/*
+Web App Dev Mid term
+October 22, 2022
+COMP 229 SEC 001
+Harshpreet Kular
+301235577
+*/
 // modules required for routing
 let express = require('express');
 let router = express.Router();

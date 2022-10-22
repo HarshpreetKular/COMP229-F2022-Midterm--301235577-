@@ -1,3 +1,10 @@
+/*
+Web App Dev Mid term
+October 22, 2022
+COMP 229 SEC 001
+Harshpreet Kular
+301235577
+*/
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -72,7 +79,7 @@ router.get('/:id', (req, res, next) => {
     }
     //render details page if no error
     else {
-      res.redirect('views/books/details', { title: 'Edit Book', book: bookToEdit });
+      res.redirect('/books', { title: 'Edit Book', book: bookToEdit });
     }
   })
 });
